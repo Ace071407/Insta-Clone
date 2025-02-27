@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/conversations.css"/>
+</head>
+<body>
+    <section class="msger">
+        <header class="msger-header">
+          <div class="msger-header-title">
+            <i class="fas fa-comment-alt">online<button class="msger-sml-send-btn"></button></i> 
+            
+            <a href="/chats/<%=userData._id%>"><button class="msger-back-btn">Back</button></a>
+          </div>
+          <div class="msger-header-options">
+            <span><i class="fas fa-cog"></i></span>
+          </div>
+        </header>
+      
+
+        <main class="msger-chat">
+            <% chatData.messages.forEach((message) => { %>
+                
+                <% if (message.sender.username == userData.username) { %>
+                  <!-- Left message (sent by current user) -->
+                  <%console.log("sender name is "+message.sender.username+" receiver name is "+message.receiver.username+" logedin username :" +userData.username)%>
+                  <div class="msg left-msg">
+                    <div class="msg-img">
+                      <img class="dp" src="/images/uploads/<%= message.sender.picture %>" width="50" height="50">
+                    </div>
+                    <div class="msg-bubble">
+                      <div class="msg-info">
+                        <div class="msg-info-name"><%= message.sender.username %></div>
+                        <div class="msg-info-time">12:45</div>
+                      </div>
+                      <div class="msg-text"><%= message.msg %></div>
+                    </div>
+                  </div>
+                <% } else { %>
+                  <!-- Right message (received) -->
+                  <div class="msg right-msg">
+                    <div class="msg-img">
+                      <img class="dp" src="/images/uploads/<%= message.sender.picture %>" width="50" height="50">
+                    </div>
+                    <div class="msg-bubble">
+                      <div class="msg-info">
+                        <div class="msg-info-name"><%= message.sender.username %></div>
+                        <div class="msg-info-time">12:46</div>
+                      </div>
+                      <div class="msg-text"><%= message.msg %></div>
+                    </div>
+                  </div>
+                <% } %>
+              <% }); %>
+              
+        </main>
+      
+        <form class="msger-inputarea" action="/chat/<%=other._id%>" method="post">
+          <input type="text" name="message" class="msger-input" placeholder="Enter your message...">
+          <input type="hidden" name="origin" value="conversation">
+          <button type="submit" class="msger-send-btn">Send</button>
+        </form>
+      </section>
+</body>
+</html>
