@@ -1,0 +1,214 @@
+@font-face {
+  font-family: 'San Francisco';
+  src: url(https://forumstatic.ru/files/001b/96/e0/44816.otf);
+}
+
+html {
+  /* ширина инстаграма */
+  --instaWidth: 620px;
+}
+.msger-back-btn {
+  margin-left: 280px;
+  background: rgb(201, 23, 17);
+  padding: 3px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: background 0.23s;
+}
+.insta_codepen_wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.insta__story {
+  margin: 0 auto;
+  display: block;
+  width: calc(var(--instaWidth) - 200px);
+  height: calc((var(--instaWidth) - 200px) * 1.77954545455);
+  overflow: hidden;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.insta__story_header {
+  width: calc(var(--instaWidth) - 200px);
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.insta__story_lines {
+  display: flex;
+  padding: 20px 10px 10px;
+}
+
+.insta__story_line {
+  margin: 0 2px;
+  height: 2px;
+  border-radius: 1px;
+  background: #fff;
+  width: calc((var(--instaWidth) - 200px) / 5 - 8px);
+  justify-content: space-between;
+}
+
+.insta__story_line-active {
+  background: linear-gradient(90deg, #fff 68%, #bababa 42%);
+
+}
+
+.insta__story_line-right {
+  background: #bababa;
+
+}
+
+.insta__story_user {
+  display: flex;
+  align-items: center;
+}
+
+.insta__story_icons {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0 10px 0 15px;
+  border: 2px solid #ff6624 !important;
+}
+
+.insta__story_username {
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.insta__story_controls {
+  display: flex;
+  align-items: center;
+  padding: 0 10px 0 0;
+}
+
+.insta__story_controls svg {
+  margin: 0 5px;
+}
+
+.insta__story_post {
+  background: #c2c2c2;
+  width: calc(var(--instaWidth) - 200px);
+  height: calc((var(--instaWidth) - 200px) * 1.77954545455);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.insta__story .black-grad {
+  /* черный */
+  background: linear-gradient(132deg, rgb(0, 0, 0) 0%, rgb(55, 55, 55) 100%);
+}
+
+.insta__story .grey-grad {
+  /* серый */
+  background: linear-gradient(132deg, rgb(135, 135, 135) 0%, rgb(217, 216, 216) 100%);
+}
+
+.insta__story .rainbow-grad {
+  /* радужный */
+  background: linear-gradient(132deg,
+          rgba(255, 0, 0, 1) 0%,
+          rgba(255, 55, 0, 1) 16%,
+          rgba(255, 166, 0, 1) 33%,
+          rgb(35, 220, 2) 50%,
+          rgb(2, 203, 226) 65%,
+          rgba(87, 101, 253, 1) 83%,
+          rgba(154, 0, 255, 1) 90%);
+}
+
+.insta__story .orange-red-pink-grad {
+  /* градиент оранжево + красный + розовый */
+  background: linear-gradient(132deg, rgb(219, 2, 169) 20%, rgb(255, 8, 62) 49%, rgb(255, 102, 36) 100%);
+}
+
+.insta__story .purple-blue-grad {
+  /* фиолетовый + голубой */
+  background: linear-gradient(132deg, rgb(215, 1, 186) 10%, rgb(39, 172, 255) 100%);
+}
+
+.insta__story .green-blue-grad {
+  /* зеленый + голубой */
+  background: linear-gradient(132deg, rgb(28, 210, 28) 50%, rgb(55, 204, 249) 100%);
+}
+
+.insta__story .red-yellow-grad {
+  /* красный + желтый */
+  background: linear-gradient(132deg, rgb(250, 28, 76) 0%, rgb(251, 215, 56) 100%);
+}
+
+.insta__story .purple-pink-grad {
+  /* фиолетовый + розовый */
+  background: linear-gradient(132deg, rgb(236, 5, 209) 20%, rgb(248, 58, 134) 100%);
+}
+
+.insta__story_photo {
+  width: calc(var(--instaWidth) - 200px);
+  object-fit: contain;
+}
+
+.insta__story-h {
+  object-fit: cover;
+}
+
+.insta__story_text {
+  margin: 68px 20px;
+  width: calc(var(--instaWidth) - 240px);
+  height: calc((var(--instaWidth) - 277px) * 1.77954545455);
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'San Francisco';
+  font-style: italic;
+  color: #fff;
+  text-shadow: #3a3a3a 1px 0px 1px;
+  font-size: 30px;
+  line-height: 34px;
+}
+
+.insta__story_reply {
+  position: absolute;
+  width: calc(var(--instaWidth) - 230px);
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.insta__story_input {
+  display: block;
+  height: 14px;
+  width: 265px;
+  border-radius: 24px;
+  border: #FFF 1px solid;
+  padding: 15px;
+  z-index: 2;
+  color: #FFF;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.inputReply{
+ background: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    color:white;
+}
+.insta__story_reply svg {
+  margin: 0 5px;
+}

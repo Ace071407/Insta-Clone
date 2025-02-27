@@ -1,0 +1,49 @@
+<% include ./partials/header.ejs %>
+    <div class="w-full min-h-screen bg-zinc-900 px-4 py-5">
+        <div class="border-2 border-zinc-800 flex items-center justify-between px-2 py-1 rounded-md">
+            <i class="text-white ri-search-line"></i>
+            <input id="inp" class="input ml-1 w-full bg-zinc-900 outline-none text-zinc-400" type="text"
+                placeholder="search username">
+        </div>
+        <div class="users">
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.8/axios.min.js"
+        integrity="sha512-v8+bPcpk4Sj7CKB11+gK/FnsbgQ15jTwZamnBf/xDmiQDcgOIYufBo6Acu1y30vrk8gg5su4x0CG3zfPaq5Fcg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        let inp = document.querySelector('#inp');
+
+        inp.addEventListener('input', () => {
+            if (inp.value != '') {
+                axios.get(`/username/${inp.value}`).then((userList) => {
+                    let allUsers = "";
+                    userList.data.forEach((user) => {
+
+                        allUsers = ` <a href="/profile/${user._id}" class="outline-none">
+<div class="text-white flex items-center gap-2 mt-5">
+<div class="image w-[11vw] h-[11vw] rounded-full bg-sky-100 overflow-hidden">
+    <img src="/images/uploads/${user.picture}" alt="">
+    </div>
+<div class="text">
+    <h3>${user.username}</h3>
+    <h4 class="text-xs opacity-30 leading-none">${user.name}</h4>
+</div>
+</div>            
+</a>`;
+                    })
+                    document.querySelector('.users').innerHTML = allUsers;
+
+                })
+            }
+            else{
+                document.querySelector('.users').innerHTML = '';
+            }
+        })
+
+
+
+    </script>
+    <% include ./partials/footer.ejs %>
